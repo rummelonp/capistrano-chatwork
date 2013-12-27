@@ -1,6 +1,6 @@
 # Capistrano Chatwork
 
-TODO: Write a gem description
+Capistrano extension for notify to ChatWork
 
 ## Installation
 
@@ -18,7 +18,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+In `deploy.rb`:
+
+```ruby
+require 'capistrano/chatwork'
+
+set :chatwork_api_token, 'your api token'
+set :chatwork_room_id, 'your room id'
+```
 
 ## Contributing
 
@@ -27,3 +34,9 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Copyright
+
+Copyright (c) 2013 [Kazuya Takeshima](mailto:mail@mitukiii.jp). See [LICENSE][license] for details.
+
+[license]: LICENSE.md
