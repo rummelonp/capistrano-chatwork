@@ -1,4 +1,4 @@
-# Capistrano Chatwork
+# Capistrano ChatWork
 
 Capistrano extension for notify to ChatWork
 
