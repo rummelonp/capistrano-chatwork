@@ -35,7 +35,7 @@ Capistrano::Configuration.instance(:must_exist).load do
     end
 
     def deployment_name
-      if fetch(:branch)
+      if fetch(:branch, nil)
         "#{fetch(:application)}/#{fetch(:branch)}"
       else
         fetch(:application)
