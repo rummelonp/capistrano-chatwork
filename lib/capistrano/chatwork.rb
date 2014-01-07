@@ -1,6 +1,7 @@
 require 'capistrano'
 require 'json'
 require 'net/http'
+require 'uri'
 
 Capistrano::Configuration.instance(:must_exist).load do
   after 'deploy', 'chatwork:notify'
