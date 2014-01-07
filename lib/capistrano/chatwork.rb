@@ -10,9 +10,9 @@ Capistrano::Configuration.instance(:must_exist).load do
     _cset(:chatwork_room_id, nil)
 
     def post_message(message)
-      uri = URI("https://api.chatwork.com/v1/rooms/#{chatwork_room_id}/messages")
+      uri = URI("https://api.chatwork.com/v1/rooms/#{fetch(:chatwork_room_id)}/messages")
       req = Net::HTTP::Post.new(uri)
-      req['X-ChatWorkToken'] = chatwork_api_token
+      req['X-ChatWorkToken'] = fetch(:chatwork_api_token)
       req.set_form_data('body' => message)
       res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
         http.request(req)
@@ -35,10 +35,10 @@ Capistrano::Configuration.instance(:must_exist).load do
     end
 
     def deployment_name
-      if branch
-        "#{application}/#{branch}"
+      if fetch(:branch)
+        "#{fetch(:application)}/#{fetch(:branch)}"
       else
-        application
+        fetch(:application)
       end
     end
 
