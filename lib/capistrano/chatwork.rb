@@ -12,7 +12,7 @@ Capistrano::Configuration.instance(:must_exist).load do
 
     def post_message(message)
       uri = URI.parse("https://api.chatwork.com/v1/rooms/#{fetch(:chatwork_room_id)}/messages")
-      req = Net::HTTP::Post.new(uri)
+      req = Net::HTTP::Post.new(uri.to_s)
       req['X-ChatWorkToken'] = fetch(:chatwork_api_token)
       req.set_form_data('body' => message)
       res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
