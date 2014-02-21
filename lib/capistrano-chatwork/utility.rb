@@ -6,11 +6,11 @@ module CapistranoChatWork
   module Utility
     def self.extended(base)
       base.instance_eval do
-        _cset(:chatwork_api_token)         { ENV['CHATWORK_API_TOKEN'] }
-        _cset(:chatwork_room_id)           { nil }
-        _cset(:chatwork_deploy_started_message)   { "#{user} is deploying #{deployment_name} to #{rails_env}" }
-        _cset(:chatwork_deploy_finished_message)  { "#{user} finished deploying #{deployment_name} to #{rails_env}" }
-        _cset(:chatwork_deploy_failed_message)    { "#{user} failed deployment of #{deployment_name} to #{rails_env}" }
+        _cset(:chatwork_api_token) { ENV['CHATWORK_API_TOKEN'] }
+        _cset(:chatwork_room_id)   { nil }
+        _cset(:chatwork_deploy_started_message)  { "#{user} is deploying #{deployment_name} to #{rails_env}" }
+        _cset(:chatwork_deploy_finished_message) { "#{user} finished deploying #{deployment_name} to #{rails_env}" }
+        _cset(:chatwork_deploy_failed_message)   { "#{user} failed deployment of #{deployment_name} to #{rails_env}" }
       end
     end
 
