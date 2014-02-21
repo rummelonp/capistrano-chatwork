@@ -1,5 +1,5 @@
 # coding: utf-8
 
 module CapistranoChatWork
-  VERSION = '0.0.6'
+  VERSION = '1.0.0'
 end
