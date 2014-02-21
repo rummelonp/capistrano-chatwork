@@ -1,9 +1,6 @@
 # coding: utf-8
 
 require 'cha'
-require 'json'
-require 'net/http'
-require 'uri'
 
 module CapistranoChatWork
   module Utility
