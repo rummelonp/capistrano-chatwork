@@ -2,34 +2,56 @@
 
 Capistrano extension for notify to ChatWork
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'capistrano-chatwork'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install capistrano-chatwork
-
 ## Usage
 
-In `deploy.rb`:
+Add the library to your `Gemfile`:
 
 ```ruby
-require 'capistrano/chatwork'
-
-set :chatwork_api_token, 'your api token'
-set :chatwork_room_id, 'your room id'
+group :development do
+  gem 'capistrano-chatwork', require: false
+end
 ```
+
+And load it into your deployment script `config/deploy.rb`:
+
+```ruby
+require 'capistrano-chatwork'
+```
+
+Add ChatWork configuration:
+
+```ruby
+set :chatwork_api_token, 'YOUR_API_TOKEN'
+set :chatwork_room_id, 'YOUR_ROOM_ID'
+```
+
+## Configuration
+
+You can modify any of the following Capistrano variables in your `deploy.rb` config.
+
+### Required variables
+
+- `chatwork_api_token` - Set ChatWork API Token. Defaults to `ENV['CHATWORK_API_TOKEN']`.
+- `chatwork_room_id`   - Set ChatWork room id for notify message.
+
+### Message variables
+
+- `chatwork_deploy_started_message`  - Set message when deployment is started.  
+  Defaults to `"#{user} is deploying #{deployment_name} to #{rails_env}"`
+- `chatwork_deploy_finished_message` - Set message when deployment is finished.  
+  Defaults to `"#{user} finished deploying #{deployment_name} to #{rails_env}"`
+- `chatwork_deploy_failed_message`   - Set message when deployment is failed.  
+  Defaults to `"#{user} failed deployment of #{deployment_name} to #{rails_env}"`
+
+#### Available methods in message
+
+- `user`            - Get user name from git config, or environment variables.
+- `deployment_name` - Get from `branch` and/or `application` of Capistrano variables.
+- `rails_env`       - Get from `rails_env` of Capistrano variables.
 
 ## Contributing
 
-1. Fork it ( https://github.com/mitukiii/capistrano-chatwork/fork )
+1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

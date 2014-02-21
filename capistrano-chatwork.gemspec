@@ -10,7 +10,6 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Kazuya Takeshima']
   spec.email         = ['mail@mitukiii.jp']
   spec.summary       = %q{Capistrano extension for notify to ChatWork}
-  spec.description   = %q{Capistrano extension for notify to ChatWork}
   spec.homepage      = 'https://github.com/mitukiii/capistrano-chatwork'
   spec.license       = 'MIT'
 
