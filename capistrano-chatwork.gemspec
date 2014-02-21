@@ -1,11 +1,12 @@
 # coding: utf-8
+
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'capistrano/chatwork/version'
+require 'capistrano-chatwork/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'capistrano-chatwork'
-  spec.version       = Capistrano::ChatWork::VERSION
+  spec.version       = CapistranoChatWork::VERSION
   spec.authors       = ['Kazuya Takeshima']
   spec.email         = ['mail@mitukiii.jp']
   spec.summary       = %q{Capistrano extension for notify to ChatWork}
