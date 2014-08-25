@@ -1,6 +1,7 @@
 # coding: utf-8
 
 require 'cha'
+require 'active_support/core_ext'
 
 module CapistranoChatWork
   module Utility
@@ -15,6 +16,7 @@ module CapistranoChatWork
     end
 
     def notify(message)
+      return if message.blank?
       client = Cha::Client.new(api_token: fetch(:chatwork_api_token))
       client.create_room_message(fetch(:chatwork_room_id), message)
     end
