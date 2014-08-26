@@ -36,12 +36,27 @@ You can modify any of the following Capistrano variables in your `deploy.rb` con
 
 ### Message variables
 
-- `chatwork_deploy_started_message`  - Set message when deployment is started.  
+- `chatwork_deploy_started_message`  - Set message when deployment is started.
   Defaults to `"#{user} is deploying #{deployment_name} to #{rails_env}"`
-- `chatwork_deploy_finished_message` - Set message when deployment is finished.  
+- `chatwork_deploy_finished_message` - Set message when deployment is finished.
   Defaults to `"#{user} finished deploying #{deployment_name} to #{rails_env}"`
-- `chatwork_deploy_failed_message`   - Set message when deployment is failed.  
+- `chatwork_deploy_failed_message`   - Set message when deployment is failed.
   Defaults to `"#{user} failed deployment of #{deployment_name} to #{rails_env}"`
+
+#### Skip notification
+
+Skip notification when set to false, nil or blank string to message variables
+
+```ruby
+# Skip deploy start notification
+set :chatwork_deploy_started_message, false
+
+# Skip deploy finished notification
+set :chatwork_deploy_finished_message, nil
+
+# Skip deploy failed notification
+set :chatwork_deploy_failed_message, ''
+```
 
 #### Available methods in message
 
