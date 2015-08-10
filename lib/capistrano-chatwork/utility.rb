@@ -1,6 +1,7 @@
 # coding: utf-8
 
 require 'cha'
+require 'active_support'
 require 'active_support/core_ext'
 
 module CapistranoChatWork
